@@ -41,6 +41,10 @@ body {
   border-radius: 34px;
 }
 
+.darkmode {
+  color: red;
+}
+
 .switch input {
   display: none;
 }

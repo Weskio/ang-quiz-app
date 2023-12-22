@@ -9,7 +9,7 @@
         <div class="mode-toggle">
             <img src="../../assets/images/icon-sun-dark.svg" alt="">
            <label class="switch">
-             <input type="checkbox">
+             <input type="checkbox" (click)="toggleTheme()">
              <span class="slider"></span>
          </label>
             <img src="../../assets/images/icon-moon-dark.svg" alt="dark">
@@ -28,7 +28,8 @@
 
             <div class="choose-cat">
                 <div>
-                    <div class="border mb-5 border-white w-[28vw] pr-[25vw] px-4 py-5 rounded-md bg-white shadow-xl flex gap-7 " >
+                    <div [ngClass]="{'darkmode':isDarkMode}"
+                    class="border mb-5 border-white w-[28vw] pr-[25vw] px-4 py-5 rounded-md bg-white shadow-xl flex gap-7 " >
                         <img src="../../assets/images/icon-html.svg" alt="" class="border rounded-md bg-orange-100">
                         <p class="text-deep-navy text-xl font-semibold mt-1">HTML</p>
                     </div>
