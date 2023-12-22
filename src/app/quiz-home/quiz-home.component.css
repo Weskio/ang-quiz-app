@@ -1,7 +1,10 @@
 body {
-  background-image: url(../../assets/images/pattern-background-desktop-light.svg);
   background-size: cover;
   padding: 3.6%;
+}
+
+.lightmode {
+  background-image: url(../../assets/images/pattern-background-desktop-light.svg);
 }
 
 .mode-toggle {
@@ -41,8 +44,14 @@ body {
   border-radius: 34px;
 }
 
-.darkmode {
-  color: red;
+.darkmode body {
+  background-image: url(../../assets/images/pattern-background-desktop-dark.svg);
+}
+.darkmode .cat-item {
+  background-color: #3B4D66;
+}
+.darkmode .cat-item p {
+  color: white;
 }
 
 .switch input {

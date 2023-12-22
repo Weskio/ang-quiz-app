@@ -1,7 +1,10 @@
 body{
-    background-image: url(../../assets/images/pattern-background-desktop-light.svg);
     background-size: cover;
     padding: 3.6%;
+}
+
+.lightmode{
+    background-image: url(../../assets/images/pattern-background-desktop-light.svg);
 }
 
 .mode-toggle{
@@ -44,7 +47,21 @@ body{
 }
 
 .darkmode{
-    color: red;
+    body{
+        background-image: url(../../assets/images/pattern-background-desktop-dark.svg);
+    }
+    .cat-item{
+        background-color: #3B4D66;
+        p{
+            color: white;
+        }
+    }
+    // .welcome-text{
+    //     color: white;
+    // }
+    // .pick-text{
+    //     color: #626C7F;
+    // }
 }
 
 .switch input{display: none;}
