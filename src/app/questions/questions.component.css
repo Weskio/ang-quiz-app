@@ -74,4 +74,14 @@ input:checked + .slider:before {
 }
 .darkmode .welcome-text .pick {
   color: #ABC1E1;
+}
+.darkmode .quiz-category p {
+  color: white;
+}
+.darkmode .cat-item .option-sec {
+  background-color: white;
+  color: #313E51;
+}
+.darkmode .main-line {
+  background-color: #3B4D66;
 }/*# sourceMappingURL=questions.component.css.map */
