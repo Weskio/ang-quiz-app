@@ -111,6 +111,12 @@ input:checked + .slider:before{
         background-color: white;
         color: #313E51;
     }
+    .cat-item:hover{
+        .option-sec{
+            background-color: #a729f5;
+            color: white;
+        }
+    }
     .main-line{
         background-color:#3B4D66;
     }
