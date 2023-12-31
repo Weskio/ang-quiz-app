@@ -8,8 +8,8 @@
 <body [ngClass]="{'darkmode':isDarkMode, 'lightmode':!isDarkMode}">
 
     <div class="header flex">
-        <div class="quiz-category ml-[10%] mt-8  flex">
-            <img src="../../assets/images/icon-accessibility.svg" alt="" width="40%" height="40px" class="rounded-md mt-4 mb-4 p-2 bg-violet-100">
+        <div class="quiz-category ml-[10%] mt-4  flex">
+            <img src="../../assets/images/icon-accessibility.svg" alt="" width="40%" height="40px" class=" rounded-md mt-4 mb-4 p-2 bg-violet-100">
             <p class="mt-8 ml-5 text-xl font-medium">Accessibility</p>
         </div>
         <div class="mode-toggle p-12  ml-[55%] flex gap-3">
@@ -23,7 +23,7 @@
     </div>
        
 
-         <div class="main-content ml-24 flex mt-2 gap-40">
+         <div class="main-content ml-24 flex mt-5 gap-40">
 
             <div class="welcome-text h-[80%] ml-16 text-deep-navy w-[33%]">
                 <p class="pick mt-7 text-lg font-light italic mb-5">Question {{i+1}} of 10</p>
@@ -39,39 +39,122 @@
 
             <div class="choose-cat">
                 <div>
-                    <div
-                    class="cat-item group border-[3px] border-white hover:border-[3px] hover:border-purple  mb-5  w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7 " >
+                     <div  
+                     *ngFor="let option of questionArray[i].options; let idx = index"  
+                     (click)="optionClicked(idx)"
+                     [ngClass]="{
+                     'cat-item': true,
+                     'group': true,
+                     'border-[3px]': true,
+                     'border-white': true,
+                     'hover:border-[3px]': true,
+                     'hover:border-purple': true,
+                     'mb-5': true,
+                     'w-[40vw]': true,
+                     'p-7': true,
+                     'rounded-2xl': true,
+                     'bg-white': true,
+                     'shadow-xl': true,
+                     'flex': true,    
+                     'gap-7': true,
+                     'selected-option': idx === selectedOptionIndex,
+                     'correct-answer': isAnswered && option.isCorrect,
+                     'wrong-answer': isAnswered && idx === selectedOptionIndex && !option.isCorrect
+                      }">
                         <p class="option-sec rounded-md group-hover:bg-purple group-hover:text-white bg-slate-200 pt-1 pb-1 p-3 text-xl">A</p>
-                        <p class="text-deep-navy text-xl font-semibold mt-1">{{questionArray[i].options[0]}}</p>
+                        <p class="text-deep-navy text-xl font-semibold mt-1">{{questionArray[i].options[0].text}}</p>
                     </div>
 
-                    <div
-                    class="cat-item border-[3px] group border-white hover:border-[3px] hover:border-purple  mb-5  w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7 " >
+                    <div  
+                     *ngFor="let option of questionArray[i].options; let idx = index"  
+                     (click)="optionClicked(idx)"
+                     [ngClass]="{
+                     'cat-item': true,
+                     'group': true,
+                     'border-[3px]': true,
+                     'border-white': true,
+                     'hover:border-[3px]': true,
+                     'hover:border-purple': true,
+                     'mb-5': true,
+                     'w-[40vw]': true,
+                     'p-7': true,
+                     'rounded-2xl': true,
+                     'bg-white': true,
+                     'shadow-xl': true,
+                     'flex': true,    
+                     'gap-7': true,
+                     'selected-option': idx === selectedOptionIndex,
+                     'correct-answer': isAnswered && option.isCorrect,
+                     'wrong-answer': isAnswered && idx === selectedOptionIndex && !option.isCorrect
+                      }">
                         <p class="option-sec rounded-md group-hover:bg-purple group-hover:text-white bg-slate-200 pt-1 pb-1 p-3 text-xl">B</p>
-                        <p class="text-deep-navy text-xl font-semibold mt-1">{{questionArray[i].options[1]}}</p>
+                        <p class="text-deep-navy text-xl font-semibold mt-1">{{questionArray[i].options[1].text}}</p>
                     </div>
 
-                    <div
-                    class="cat-item border-[3px] group border-white hover:border-[3px] hover:border-purple  mb-5  w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7 " >
+                    <div  
+                     *ngFor="let option of questionArray[i].options; let idx = index"  
+                     (click)="optionClicked(idx)"
+                     [ngClass]="{
+                     'cat-item': true,
+                     'group': true,
+                     'border-[3px]': true,
+                     'border-white': true,
+                     'hover:border-[3px]': true,
+                     'hover:border-purple': true,
+                     'mb-5': true,
+                     'w-[40vw]': true,
+                     'p-7': true,
+                     'rounded-2xl': true,
+                     'bg-white': true,
+                     'shadow-xl': true,
+                     'flex': true,    
+                     'gap-7': true,
+                     'selected-option': idx === selectedOptionIndex,
+                     'correct-answer': isAnswered && option.isCorrect,
+                     'wrong-answer': isAnswered && idx === selectedOptionIndex && !option.isCorrect
+                      }">
                         <p class="option-sec rounded-md group-hover:bg-purple group-hover:text-white bg-slate-200 pt-1 pb-1 p-3 text-xl">C</p>
-                        <p class="text-deep-navy text-xl font-semibold mt-1">{{questionArray[i].options[2]}}</p>
+                        <p class="text-deep-navy text-xl font-semibold mt-1">{{questionArray[i].options[2].text}}</p>
                     </div>
 
-                    <div
-                    class="cat-item border-[3px] group border-white hover:border-[3px] hover:border-purple  mb-5  w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7 " >
+                    <div  
+                     *ngFor="let option of questionArray[i].options; let idx = index"  
+                     (click)="optionClicked(idx)"
+                     [ngClass]="{
+                     'cat-item': true,
+                     'group': true,
+                     'border-[3px]': true,
+                     'border-white': true,
+                     'hover:border-[3px]': true,
+                     'hover:border-purple': true,
+                     'mb-5': true,
+                     'w-[40vw]': true,
+                     'p-7': true,
+                     'rounded-2xl': true,
+                     'bg-white': true,
+                     'shadow-xl': true,
+                     'flex': true,    
+                     'gap-7': true,
+                     'selected-option': idx === selectedOptionIndex,
+                     'correct-answer': isAnswered && option.isCorrect,
+                     'wrong-answer': isAnswered && idx === selectedOptionIndex && !option.isCorrect
+                      }">
                         <p class="option-sec rounded-md group-hover:bg-purple group-hover:text-white bg-slate-200 pt-1 pb-1 p-3 text-xl">D</p>
-                        <p class="text-deep-navy text-xl font-semibold mt-1">{{questionArray[i].options[3]}}</p>
+                        <p class="text-deep-navy text-xl font-semibold mt-1">{{questionArray[i].options[3].text}}</p>
                     </div>
 
-                
-
-                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[40vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="nextQuestion()">
+                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[40vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="submitAnswer()">
                       <p class="ml-auto mr-auto font-medium tracking-wide">Submit answer</p>
                     </button>
 
-                    <button class="invisible next-submit-btn mb-5 hover:opacity-35 -mt-28  w-[40vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="nextQuestion()">
+                    <button class="next-submit-btn mb-5 hover:opacity-35 -mt-28  w-[40vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="nextQuestion()" *ngIf="isAnswered">
                         <p class="ml-auto mr-auto font-medium tracking-wide">Next Question</p>
                       </button>
+
+                      <div class="no-answer flex ml-auto">
+                        <img src="../../assets/images/icon-error.svg" alt="">
+                        <p>Please select an answer</p>
+                      </div>
                 </div>
             </div>
 

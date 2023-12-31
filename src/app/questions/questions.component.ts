@@ -1,53 +1,80 @@
-import { NgClass, NgStyle } from '@angular/common';
+import { NgClass, NgIf, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
+import { Question } from '../question';
 
 @Component({
   selector: 'app-questions',
   standalone: true,
-  imports: [NgClass,NgStyle],
+  imports: [NgClass,NgStyle,NgIf],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss'
 })
 export class QuestionsComponent {
+  
 
   isDarkMode = false;
   i = 0;
   toggleLength = 10
-  isCorrect =false
+  isOptionSelected=false
 
   toggleTheme(){
    this.isDarkMode= !this.isDarkMode
   }
-
   ;
 
   questionArray =[{
     title:"Which of the following is the correct structure for an HTML document?",
     options: [
-      "<html><head></head><body></body></html>", 
-      "<head><html></html><body></body></head>", 
-      "<body><head></head><html></html></body>", 
-       "<html><body></body><head></head></html>"
-      ]
+      {text:"<html><head></head><body></body></html>" ,isCorrect:true}, 
+      {text:"<head><html></html><body></body></head>" ,isCorrect:false}, 
+      {text:"<body><head></head><html></html></body>" ,isCorrect:false}, 
+      {text:"<html><body></body><head></head></html>" ,isCorrect:false}
+  ]
   },
   {
     title:"Which HTML element is used to define the title of a document?",
     options:[
-      "<head>",
-      "<title>",
-      "<header>",
-      "<top>"
+      {text:"<head>", isCorrect:false},
+      {text:"<title>", isCorrect:true},
+      {text:"<header>", isCorrect:false},
+      {text:"<top>",isCorrect:false }
     ]
   }
 ]
 
-nextQuestion(){
-  this.i++
-  this.toggleLength+=10
+// ... [rest of your component code] ...
+
+
+selectedOptionIndex= null;
+isAnswered = false;
+score = 0;
+
+optionClicked(index) {
+  // Only allow selecting if the question hasn't been answered yet
+  if (!this.isAnswered) {
+    this.selectedOptionIndex = index;
+  }
 }
 
 submitAnswer(){
-  this.isCorrect=true
-
+  if(this.selectedOptionIndex !== null){
+    this.isAnswered = true;
+    if(this.questionArray[this.i].options[this.selectedOptionIndex].isCorrect){
+      this.score++;
+    }
+  }
 }
+
+nextQuestion(){
+  this.i++;
+  this.toggleLength += 10;
+  // Reset for the next question
+  this.selectedOptionIndex = null;
+  this.isAnswered = false;
+}
+
+// ... [rest of your component code] ...
+
+
+
 }

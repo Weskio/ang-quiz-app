@@ -48,6 +48,19 @@ body{
     margin: 0 5px ;
 }
 
+/* Add this to your styles (or styles.scss) file */
+.selected-option {
+    border-color:#a729f5; /* You can customize the color to match your design */
+    background-color: white;
+    color: white;
+
+    .option-sec{
+        background-color: #a729f5;
+        color: white;
+    }
+  }
+  
+
 .cat-item{
     cursor: pointer;
 }

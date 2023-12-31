@@ -19,6 +19,17 @@ body .darkmode {
   margin: 0 5px;
 }
 
+/* Add this to your styles (or styles.scss) file */
+.selected-option {
+  border-color: #a729f5; /* You can customize the color to match your design */
+  background-color: white;
+  color: white;
+}
+.selected-option .option-sec {
+  background-color: #a729f5;
+  color: white;
+}
+
 .cat-item {
   cursor: pointer;
 }
@@ -81,6 +92,10 @@ input:checked + .slider:before {
 .darkmode .cat-item .option-sec {
   background-color: white;
   color: #313E51;
+}
+.darkmode .cat-item:hover .option-sec {
+  background-color: #a729f5;
+  color: white;
 }
 .darkmode .main-line {
   background-color: #3B4D66;
