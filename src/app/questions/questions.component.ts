@@ -74,9 +74,8 @@ nextQuestion(){
   
  if(this.i>= this.questionArray.length){
   this.isResultShown=true
-  console.log(`${this.score} / ${this.questionArray.length}`)
+  //console.log(`${this.score} / ${this.questionArray.length}`)
  }
-
  else{
   
   this.toggleLength += 10;
