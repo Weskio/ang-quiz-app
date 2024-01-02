@@ -70,19 +70,18 @@ submitAnswer(){
 }
 
 nextQuestion(){
-  this.i++;
-  
- if(this.i>= this.questionArray.length){
-  this.isResultShown=true
-  //console.log(`${this.score} / ${this.questionArray.length}`)
- }
- else{
-  
-  this.toggleLength += 10;
-  this.selectedOptionIndex = null;
-  this.isAnswered = false;
- }
 
+  if (this.i < this.questionArray.length - 1){
+    // Safe to move to the next question
+    this.toggleLength+=10
+    this.i++;
+    this.isAnswered = false;
+    this.selectedOptionIndex = null;
+    this.noAnswer = false;
+  } else {
+    // We've reached the end of the questions
+    this.isResultShown = true;
+  }
  
 }
 

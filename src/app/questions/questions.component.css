@@ -145,4 +145,14 @@ input:checked + .slider:before {
 .darkmode .wrong-answer .option-sec, .darkmode .wrong-answer:hover .option-sec {
   background-color: #EE5454;
   color: white;
+}
+.darkmode .quiz-completed p {
+  color: white;
+}
+.darkmode .results, .darkmode .score {
+  color: white;
+  background-color: #3B4D66;
+}
+.darkmode .out-of {
+  color: #ABC1E1;
 }/*# sourceMappingURL=questions.component.css.map */

@@ -159,7 +159,6 @@ input:checked + .slider:before{
             color: white;
         }
       }
-    
       .wrong-answer, .wrong-answer:hover{
         border-color:#EE5454; 
         color: black;
@@ -168,6 +167,18 @@ input:checked + .slider:before{
             background-color: #EE5454;
             color: white;
         }
+      }
+
+      .quiz-completed p{
+        color: white;
+
+      }
+      .results, .score{
+        color: white;
+        background-color: #3B4D66;
+      }
+      .out-of{
+        color: #ABC1E1;
       }
 }
 

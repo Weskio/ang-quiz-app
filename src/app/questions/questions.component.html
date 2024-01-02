@@ -25,7 +25,7 @@
 
          <div class="main-content ml-24 flex mt-5 gap-40">
 
-            <div class="welcome-text h-[80%] ml-16 text-deep-navy w-[33%]">
+            <div class="welcome-text h-[80%] ml-16 text-deep-navy w-[33%]" *ngIf="!isResultShown">
                 <p class="pick mt-7 text-lg font-light italic mb-5">Question {{i+1}} of 10</p>
                 <p class="-mb-10 text-[2.5rem] font-medium leading-[2.8rem] ">{{questionArray[i].title}}</p>
                 
@@ -35,6 +35,11 @@
 
               </div>
 
+            </div>
+
+            <div class=" ml-24 mr-24 quiz-completed" *ngIf="isResultShown">
+              <p class="text-[3rem] font-[400] text-navy">Quiz completed</p>
+              <p class="text-[3.5rem] -mt-6 text-deep-navy font-[550]">You scored...</p>
             </div>
 
             <div class="choose-cat">
@@ -74,17 +79,17 @@
                       <img src="../../assets/images/icon-accessibility.svg" alt="" width="15%" height="40px" class=" rounded-md mt-4 p-2 bg-violet-100">
                       <p class="mt-8 ml-5 text-xl font-medium">Accessibility</p>
                   </div>
-                    <p class="text-deep-navy text-[10rem] -mb-12 ml-[14vw]">{{score}}</p>
-                    <p class="text-ashy ml-[15vw]">out of {{questionArray.length}}</p>
+                    <p class="text-deep-navy score text-[10rem] -mb-12 ml-[14vw]">{{score}}</p>
+                    <p class="text-ashy out-of ml-[15.2vw]">out of {{questionArray.length}}</p>
                   </div>
                      
 
 
-                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="submitAnswer()" *ngIf="!isAnswered">
+                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="submitAnswer()" *ngIf="!isAnswered && !isResultShown">
                       <p class="ml-auto mr-auto font-medium tracking-wide">Submit answer</p>
                     </button>
 
-                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="nextQuestion()" *ngIf="isAnswered">
+                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="nextQuestion()" *ngIf="isAnswered && !isResultShown">
                         <p class="ml-auto mr-auto font-medium tracking-wide">Next Question</p>
                       </button>
 
