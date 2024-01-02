@@ -1,11 +1,11 @@
-import { NgClass, NgIf, NgStyle } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { Question } from '../question';
 
 @Component({
   selector: 'app-questions',
   standalone: true,
-  imports: [NgClass,NgStyle,NgIf],
+  imports: [NgClass,NgStyle,NgIf,NgFor],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss'
 })
@@ -42,8 +42,6 @@ export class QuestionsComponent {
   }
 ]
 
-// ... [rest of your component code] ...
-
 
 selectedOptionIndex= null;
 isAnswered = false;
@@ -73,8 +71,7 @@ nextQuestion(){
   this.isAnswered = false;
 }
 
-// ... [rest of your component code] ...
-
+ 
 
 
 }
