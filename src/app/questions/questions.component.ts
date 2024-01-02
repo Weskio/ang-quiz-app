@@ -47,6 +47,7 @@ selectedOptionIndex= null;
 isAnswered = false;
 score = 0;
 noAnswer= false
+isResultShown =false
 
 optionClicked(index) {
   // Only allow selecting if the question hasn't been answered yet
@@ -64,16 +65,26 @@ submitAnswer(){
     }
   }
   else{
-this.noAnswer=true
+   this.noAnswer=true
   }
 }
 
 nextQuestion(){
   this.i++;
+  
+ if(this.i>= this.questionArray.length){
+  this.isResultShown=true
+  console.log(`${this.score} / ${this.questionArray.length}`)
+ }
+
+ else{
+  
   this.toggleLength += 10;
-  // Reset for the next question
   this.selectedOptionIndex = null;
   this.isAnswered = false;
+ }
+
+ 
 }
 
  

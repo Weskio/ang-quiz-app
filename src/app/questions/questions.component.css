@@ -89,6 +89,9 @@ input:checked + .slider:before {
   transform: translate(25px);
 }
 
+.darkmode {
+  transition: 0.4s;
+}
 .darkmode .cat-item {
   background-color: #3B4D66;
   border-color: #3B4D66;

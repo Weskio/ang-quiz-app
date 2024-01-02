@@ -106,6 +106,7 @@ input:checked + .slider:before{
 }
 
 .darkmode{
+    transition: 0.4s;
     .cat-item{
         background-color: #3B4D66;
         p{
