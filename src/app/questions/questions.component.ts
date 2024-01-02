@@ -22,25 +22,42 @@ export class QuestionsComponent {
   }
   ;
 
-  questionArray =[{
-    title:"Which of the following is the correct structure for an HTML document?",
+selectedOption=null
+questions = [
+  {
+    question: "What does CSS stand for?",
     options: [
-      {text:"<html><head></head><body></body></html>" ,isCorrect:true}, 
-      {text:"<head><html></html><body></body></head>" ,isCorrect:false}, 
-      {text:"<body><head></head><html></html></body>" ,isCorrect:false}, 
-      {text:"<html><body></body><head></head></html>" ,isCorrect:false}
-  ]
+      "Colorful Style Sheets",
+      "Computer Style Sheets",
+      "Cascading Style Sheets",
+      "Creative Style Sheets"
+    ],
+    answer: "Cascading Style Sheets"
   },
   {
-    title:"Which HTML element is used to define the title of a document?",
-    options:[
-      {text:"<head>", isCorrect:false},
-      {text:"<title>", isCorrect:true},
-      {text:"<header>", isCorrect:false},
-      {text:"<top>",isCorrect:false }
-    ]
+    question: "Which of the following is the correct structure for an HTML document?",
+    options: [
+      "<html><head></head><body></body></html>",
+      "<head><html></html><body></body></head>",
+      "<body><head></head><html></html></body>",
+      "<html><body></body><head></head></html>"
+    ],
+    answer: "<html><head></head><body></body></html>"
   }
-]
+  // Add more question objects as needed
+];
+
+
+// optionClicked(selectedOption) {
+//   if (!this.isAnswered) {
+//     this.selectedOption = selectedOption; // Store the selected option
+//     this.isAnswered = true;
+//     if (selectedOption === this.questions[this.i].answer) {
+//       this.score++;
+//     }
+//   }
+// }
+
 
 
 selectedOptionIndex= null;
@@ -49,40 +66,47 @@ score = 0;
 noAnswer= false
 isResultShown =false
 
-optionClicked(index) {
-  // Only allow selecting if the question hasn't been answered yet
+optionClicked(selectedOption) {
   if (!this.isAnswered) {
-    this.selectedOptionIndex = index;
+    this.selectedOption = selectedOption; // Store the selected option
+
   }
-  console.log('clicked wai')
 }
 
-submitAnswer(){
-  if(this.selectedOptionIndex !== null){
+submitAnswer() {
+  if(this.selectedOption !== null){
     this.isAnswered = true;
-    if(this.questionArray[this.i].options[this.selectedOptionIndex].isCorrect){
+    this.noAnswer =false
+    if(this.selectedOption === this.questions[this.i].answer){
       this.score++;
     }
   }
   else{
-   this.noAnswer=true
+   this.noAnswer = true;
   }
 }
 
 nextQuestion(){
 
-  if (this.i < this.questionArray.length - 1){
+  if (this.i < this.questions.length - 1){
     // Safe to move to the next question
     this.toggleLength+=10
     this.i++;
     this.isAnswered = false;
-    this.selectedOptionIndex = null;
+    this.selectedOption = null;
     this.noAnswer = false;
-  } else {
+  } 
+  
+  else {
     // We've reached the end of the questions
+    console.log('end of quiz bitch')
     this.isResultShown = true;
   }
  
+}
+
+playAgain(){
+  location.reload()
 }
 
  
