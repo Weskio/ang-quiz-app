@@ -50,7 +50,7 @@
                      'hover:border-[3px]': true,
                      'hover:border-purple': true,
                      'mb-5': true,
-                     'w-[40vw]': true,
+                     'w-[42vw]': true,
                      'p-7': true,
                      'rounded-2xl': true,
                      'bg-white': true,
@@ -63,18 +63,20 @@
                       }">
                         <p class="option-sec rounded-md group-hover:bg-purple group-hover:text-white bg-slate-200 pt-1 pb-1 p-3 text-xl">{{'ABCD'[idx]}}</p>
                         <p class="text-deep-navy text-xl font-semibold mt-1">{{ option.text }}</p>
+                        <img src="../../assets/images/icon-correct.svg" alt="" *ngIf=" isAnswered && option.isCorrect">
+                        <img src="../../assets/images/icon-incorrect.svg" alt="" *ngIf=" isAnswered && idx === selectedOptionIndex && !option.isCorrect" >
                     </div>
 
 
-                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[40vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="submitAnswer()" *ngIf="!isAnswered">
+                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="submitAnswer()" *ngIf="!isAnswered">
                       <p class="ml-auto mr-auto font-medium tracking-wide">Submit answer</p>
                     </button>
 
-                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[40vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="nextQuestion()" *ngIf="isAnswered">
+                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="nextQuestion()" *ngIf="isAnswered">
                         <p class="ml-auto mr-auto font-medium tracking-wide">Next Question</p>
                       </button>
 
-                      <div class="no-answer flex ml-auto">
+                      <div class="no-answer flex ml-auto" *ngIf="noAnswer">
                         <img src="../../assets/images/icon-error.svg" alt="">
                         <p>Please select an answer</p>
                       </div>

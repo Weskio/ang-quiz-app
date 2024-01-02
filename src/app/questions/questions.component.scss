@@ -21,24 +21,7 @@ body{
     }
 }
 
-// .mode-toggle{
-//     position: absolute;
-//     right: 0;
-//    margin-right: 7.6%;
-//    display: flex;
-//    gap: 12px;
 
-// }
-
-// .main-content{
-//     margin: 7%;
-//     margin-top: 120px;
-//     display: flex;
-// }
-
-// .choose-cat{
-//     padding: 2.5%;
-// }
 
 .switch{
     position: relative;
@@ -48,14 +31,36 @@ body{
     margin: 0 5px ;
 }
 
-/* Add this to your styles (or styles.scss) file */
 .selected-option {
-    border-color:#a729f5; /* You can customize the color to match your design */
+    border-color:#a729f5; 
     background-color: white;
     color: white;
 
     .option-sec{
         background-color: #a729f5;
+        color: white;
+    }
+  }
+
+
+  .correct-answer{
+    border-color:#26D782; 
+    background-color: white;
+    color: white;
+
+    .option-sec{
+        background-color: #26D782;
+        color: white;
+    }
+  }
+
+  .wrong-answer{
+    border-color:#EE5454; 
+    background-color: white;
+    color: white;
+
+    .option-sec{
+        background-color: #EE5454;
         color: white;
     }
   }
@@ -133,6 +138,36 @@ input:checked + .slider:before{
     .main-line{
         background-color:#3B4D66;
     }
+
+    .selected-option {
+        border-color:#a729f5; 
+        color: black;
+    
+        .option-sec{
+            background-color: #a729f5;
+            color: white;
+        }
+      }
+
+      .correct-answer, .correct-answer:hover{
+        border-color:#26D782; 
+        color: black;
+    
+        .option-sec{
+            background-color: #26D782;
+            color: white;
+        }
+      }
+    
+      .wrong-answer, .wrong-answer:hover{
+        border-color:#EE5454; 
+        color: black;
+    
+        .option-sec{
+            background-color: #EE5454;
+            color: white;
+        }
+      }
 }
 
 

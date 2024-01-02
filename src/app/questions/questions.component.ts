@@ -46,12 +46,14 @@ export class QuestionsComponent {
 selectedOptionIndex= null;
 isAnswered = false;
 score = 0;
+noAnswer= false
 
 optionClicked(index) {
   // Only allow selecting if the question hasn't been answered yet
   if (!this.isAnswered) {
     this.selectedOptionIndex = index;
   }
+  console.log('clicked wai')
 }
 
 submitAnswer(){
@@ -60,6 +62,9 @@ submitAnswer(){
     if(this.questionArray[this.i].options[this.selectedOptionIndex].isCorrect){
       this.score++;
     }
+  }
+  else{
+this.noAnswer=true
   }
 }
 

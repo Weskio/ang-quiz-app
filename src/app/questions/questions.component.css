@@ -19,14 +19,33 @@ body .darkmode {
   margin: 0 5px;
 }
 
-/* Add this to your styles (or styles.scss) file */
 .selected-option {
-  border-color: #a729f5; /* You can customize the color to match your design */
+  border-color: #a729f5;
   background-color: white;
   color: white;
 }
 .selected-option .option-sec {
   background-color: #a729f5;
+  color: white;
+}
+
+.correct-answer {
+  border-color: #26D782;
+  background-color: white;
+  color: white;
+}
+.correct-answer .option-sec {
+  background-color: #26D782;
+  color: white;
+}
+
+.wrong-answer {
+  border-color: #EE5454;
+  background-color: white;
+  color: white;
+}
+.wrong-answer .option-sec {
+  background-color: #EE5454;
   color: white;
 }
 
@@ -99,4 +118,28 @@ input:checked + .slider:before {
 }
 .darkmode .main-line {
   background-color: #3B4D66;
+}
+.darkmode .selected-option {
+  border-color: #a729f5;
+  color: black;
+}
+.darkmode .selected-option .option-sec {
+  background-color: #a729f5;
+  color: white;
+}
+.darkmode .correct-answer, .darkmode .correct-answer:hover {
+  border-color: #26D782;
+  color: black;
+}
+.darkmode .correct-answer .option-sec, .darkmode .correct-answer:hover .option-sec {
+  background-color: #26D782;
+  color: white;
+}
+.darkmode .wrong-answer, .darkmode .wrong-answer:hover {
+  border-color: #EE5454;
+  color: black;
+}
+.darkmode .wrong-answer .option-sec, .darkmode .wrong-answer:hover .option-sec {
+  background-color: #EE5454;
+  color: white;
 }/*# sourceMappingURL=questions.component.css.map */
