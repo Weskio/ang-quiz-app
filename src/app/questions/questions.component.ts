@@ -69,7 +69,6 @@ isResultShown =false
 optionClicked(selectedOption) {
   if (!this.isAnswered) {
     this.selectedOption = selectedOption; // Store the selected option
-
   }
 }
 
