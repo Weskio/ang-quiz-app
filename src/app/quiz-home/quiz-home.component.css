@@ -1,14 +1,7 @@
-body {
-  height: 100vh;
-  background-size: cover;
-}
-body .lightmode {
-  background-image: url(../../assets/images/pattern-background-desktop-light.svg);
-  background-color: #F4F6FA;
-}
-body .darkmode {
-  background-image: url(../../assets/images/pattern-background-desktop-dark.svg);
-  background-color: #313E51;
+
+
+#body{
+  padding-bottom: 20%;
 }
 
 .switch {
