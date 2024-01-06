@@ -382,9 +382,6 @@ export class QuestionsDataService {
     return extractedQuestions;
   }
 
-
-  // getQuestionsData(){
-  //   return this.questionsData.filter(question => question.questions)
-  // }
+  
   constructor() {}
 }

@@ -6,22 +6,15 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-quiz-home',
   standalone: true,
-  imports: [NgClass,RouterModule],
+  imports: [NgClass, RouterModule],
   templateUrl: './quiz-home.component.html',
-  styleUrl: './quiz-home.component.scss'
+  styleUrl: './quiz-home.component.scss',
 })
 export class QuizHomeComponent {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    if (isPlatformServer(this.platformId)) {
-      // This code will be executed only on the server, so you can skip hydration here
-    }
+  isDarkMode = false;
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    console.log('hello');
   }
-
-  isDarkMode = false
-
-  toggleTheme(){
-   this.isDarkMode= !this.isDarkMode
-   console.log('hello')
-  }
-
 }

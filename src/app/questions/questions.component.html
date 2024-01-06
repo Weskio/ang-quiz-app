@@ -1,108 +1,163 @@
-
-<div class="pb-[8%] w-full bg-cover " [ngClass]="{'darkmode':isDarkMode, 'lightmode':!isDarkMode}">
-
-    <div class="header flex">
-        <div class="quiz-category ml-[10%] mt-4  flex">
-            <img src="../../assets/images/icon-accessibility.svg" alt="" width="40%" height="40px" class=" rounded-md mt-4 mb-4 p-2 bg-violet-100">
-            <p class="mt-8 ml-5 text-xl font-medium">Accessibility</p>
-        </div>
-        <div class="mode-toggle p-12  ml-[55%] flex gap-3">
-            <img src="../../assets/images/icon-sun-dark.svg" alt="">
-           <label class="switch">
-             <input type="checkbox" (click)="toggleTheme()">
-             <span class="slider"></span>
-         </label>
-            <img src="../../assets/images/icon-moon-dark.svg" alt="dark">
-         </div>
+<div
+  class="pb-[8%] w-full bg-cover"
+  [ngClass]="{ darkmode: isDarkMode, lightmode: !isDarkMode }"
+>
+  <div class="header flex">
+    <div class="quiz-category ml-[10%] mt-4 flex">
+      <img
+        src="../../assets/images/icon-accessibility.svg"
+        alt=""
+        width="40%"
+        height="40px"
+        class="rounded-md mt-4 mb-4 p-2 bg-violet-100"
+      />
+      <p class="mt-8 ml-5 text-xl font-medium">Accessibility</p>
     </div>
-       
+    <div class="mode-toggle p-12 ml-[55%] flex gap-3">
+      <img src="../../assets/images/icon-sun-dark.svg" alt="" />
+      <label class="switch">
+        <input type="checkbox" (click)="toggleTheme()" />
+        <span class="slider"></span>
+      </label>
+      <img src="../../assets/images/icon-moon-dark.svg" alt="dark" />
+    </div>
+  </div>
 
-         <div class="main-content ml-24 flex mt-5 gap-40">
+  <div class="main-content ml-24 flex mt-5 gap-40">
+    <div
+      class="welcome-text h-[80%] ml-16 text-deep-navy w-[33%]"
+      *ngIf="!isResultShown"
+    >
+      <p class="pick mt-7 text-lg font-light italic mb-5">
+        Question {{ i + 1 }} of 10
+      </p>
+      <p class="-mb-10 text-[2.5rem] font-medium leading-[2.8rem]">
+        {{ questions[i].question }}
+      </p>
 
-            <div class="welcome-text h-[80%] ml-16 text-deep-navy w-[33%]" *ngIf="!isResultShown">
-                <p class="pick mt-7 text-lg font-light italic mb-5">Question {{i+1}} of 10</p>
-                <p class="-mb-10 text-[2.5rem] font-medium leading-[2.8rem] ">{{questions[i]?.question}}</p>
-                
-              <div class="toggle-bar  relative mt-[55%]">
-                <div class="main-line relative w-[110%] bg-white p-[0.5rem] rounded-2xl "></div>
-                <div [ngStyle]="{'width': toggleLength + '%'}" class="inside-line absolute bg-purple p-[0.2rem] left-1 top-[0.3rem] rounded-xl"></div>
+      <div class="toggle-bar relative mt-[55%]">
+        <div
+          class="main-line relative w-[110%] bg-white p-[0.5rem] rounded-2xl"
+        ></div>
+        <div
+          [ngStyle]="{ width: toggleLength + '%' }"
+          class="inside-line absolute bg-purple p-[0.2rem] left-1 top-[0.3rem] rounded-xl"
+        ></div>
+      </div>
+    </div>
 
-              </div>
+    <div class="ml-24 mr-24 quiz-completed" *ngIf="isResultShown">
+      <p class="text-[3rem] font-[400] text-navy">Quiz completed</p>
+      <p class="text-[3.5rem] -mt-6 text-deep-navy font-[550]">You scored...</p>
+    </div>
 
-            </div>
-
-            <div class=" ml-24 mr-24 quiz-completed" *ngIf="isResultShown">
-              <p class="text-[3rem] font-[400] text-navy">Quiz completed</p>
-              <p class="text-[3.5rem] -mt-6 text-deep-navy font-[550]">You scored...</p>
-            </div>
-
-            <div class="choose-cat">
-                <div>
-                  <div class="" *ngIf="!isResultShown">
-                    <div  
-                    *ngFor="let option of questions[i].options; let idx = index" 
-                    (click)="optionClicked(option)"
-                    [ngClass]="{
-                      'cat-item': true,
-                      'group': true,
-                      'border-[3px]': true,
-                      'border-white': true,
-                      'hover:border-[3px]': true,
-                      'hover:border-purple': true,
-                      'mb-5': true,
-                      'w-[42vw]': true,
-                      'p-7': true,
-                      'rounded-2xl': true,
-                      'bg-white': true,
-                      'shadow-xl': true,
-                      'flex': true,    
-                      'gap-7': true,
-                      'selected-option': selectedOption === option,
-                      'correct-answer': isAnswered && option === questions[i].answer,
-                      'wrong-answer': isAnswered && selectedOption === option && option !== questions[i].answer
-                    }">
-                      <p class="option-sec rounded-md group-hover:bg-purple group-hover:text-white bg-slate-200 pt-1 pb-1 p-3 text-xl">{{'ABCD'[idx]}}</p>
-                      <p class="text-deep-navy text-xl font-semibold mt-1">{{ option }}</p>
-                      <img src="../../assets/images/icon-correct.svg" alt="" class="ml-auto" *ngIf="isAnswered && option === questions[i].answer">
-                      <img src="../../assets/images/icon-incorrect.svg" alt="" class="ml-auto" *ngIf="isAnswered && selectedOption === option && option !== questions[i].answer">
-                  </div>
-                  
-                  </div>
-
-                  <div class="results h-[46vh] w-[35vw]  bg-white mb-12 rounded-xl" *ngIf="isResultShown">
-                    <div class="mt-4 -mb-4 flex ml-[10vw]">
-                      <img src="../../assets/images/icon-accessibility.svg" alt="" width="15%" height="40px" class=" rounded-md mt-4 p-2 bg-violet-100">
-                      <p class="mt-8 ml-5 text-xl font-medium">Accessibility</p>
-                  </div>
-                    <p class="text-deep-navy score text-[10rem] -mb-12 ml-[14vw]">{{score}}</p>
-                    <p class="text-ashy out-of ml-[15.2vw]">out of {{questions.length}}</p>
-                  </div>
-                     
-
-
-                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="submitAnswer()" *ngIf="!isAnswered && !isResultShown">
-                      <p class="ml-auto mr-auto font-medium tracking-wide">Submit answer</p>
-                    </button>
-
-                    <button class="next-submit-btn mb-5 hover:opacity-35  w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="nextQuestion()" *ngIf="isAnswered && !isResultShown">
-                        <p class="ml-auto mr-auto font-medium tracking-wide">Next Question</p>
-                      </button>
-
-                      <button class="next-submit-btn mb-5 hover:opacity-35  w-[35vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl" (click)="playAgain()" *ngIf="isResultShown">
-                        <p class="ml-auto mr-auto font-medium tracking-wide">Play again</p>
-                      </button>
-
-                      <div class="no-answer flex ml-auto" *ngIf="noAnswer">
-                        <img src="../../assets/images/icon-error.svg" alt="">
-                        <p>Please select an answer</p>
-                      </div>
-                </div>
-            </div>
-
-          
-         </div>
-
-        
-    
+    <div class="choose-cat">
+      <div>
+        <div class="" *ngIf="!isResultShown">
+          <div
+            *ngFor="let option of questions[i].options; let idx = index"
+            (click)="optionClicked(option)"
+            [ngClass]="{
+              'cat-item': true,
+              group: true,
+              'border-[3px]': true,
+              'border-white': true,
+              'hover:border-[3px]': true,
+              'hover:border-purple': true,
+              'mb-5': true,
+              'w-[42vw]': true,
+              'p-7': true,
+              'rounded-2xl': true,
+              'bg-white': true,
+              'shadow-xl': true,
+              flex: true,
+              'gap-7': true,
+              'selected-option': selectedOption === option,
+              'correct-answer': isAnswered && option === questions[i].answer,
+              'wrong-answer':
+                isAnswered &&
+                selectedOption === option &&
+                option !== questions[i].answer
+            }"
+          >
+            <p
+              class="option-sec rounded-md group-hover:bg-purple group-hover:text-white bg-slate-200 pt-1 pb-1 p-3 text-xl"
+            >
+              {{ "ABCD"[idx] }}
+            </p>
+            <p class="text-deep-navy text-xl font-semibold mt-1">
+              {{ option }}
+            </p>
+            <img
+              src="../../assets/images/icon-correct.svg"
+              alt=""
+              class="ml-auto"
+              *ngIf="isAnswered && option === questions[i].answer"
+            />
+            <img
+              src="../../assets/images/icon-incorrect.svg"
+              alt=""
+              class="ml-auto"
+              *ngIf="
+                isAnswered &&
+                selectedOption === option &&
+                option !== questions[i].answer
+              "
+            />
+          </div>
         </div>
 
+        <div
+          class="results h-[46vh] w-[35vw] bg-white mb-12 rounded-xl"
+          *ngIf="isResultShown"
+        >
+          <div class="mt-4 -mb-4 flex ml-[10vw]">
+            <img
+              src="../../assets/images/icon-accessibility.svg"
+              alt=""
+              width="15%"
+              height="40px"
+              class="rounded-md mt-4 p-2 bg-violet-100"
+            />
+            <p class="mt-8 ml-5 text-xl font-medium">Accessibility</p>
+          </div>
+          <p class="text-deep-navy score text-[10rem] -mb-12 ml-[14vw]">
+            {{ score }}
+          </p>
+          <p class="text-ashy out-of ml-[15.2vw]">
+            out of {{ questions.length }}
+          </p>
+        </div>
+
+        <button
+          class="next-submit-btn mb-5 hover:opacity-35 w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl"
+          (click)="submitAnswer()"
+          *ngIf="!isAnswered && !isResultShown"
+        >
+          <p class="ml-auto mr-auto font-medium tracking-wide">Submit answer</p>
+        </button>
+
+        <button
+          class="next-submit-btn mb-5 hover:opacity-35 w-[42vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl"
+          (click)="nextQuestion()"
+          *ngIf="isAnswered && !isResultShown"
+        >
+          <p class="ml-auto mr-auto font-medium tracking-wide">Next Question</p>
+        </button>
+
+        <button
+          class="next-submit-btn mb-5 hover:opacity-35 w-[35vw] p-8 rounded-2xl bg-purple text-white shadow-xl flex items-center text-2xl"
+          (click)="playAgain()"
+          *ngIf="isResultShown"
+        >
+          <p class="ml-auto mr-auto font-medium tracking-wide">Play again</p>
+        </button>
+
+        <div class="no-answer flex ml-auto" *ngIf="noAnswer">
+          <img src="../../assets/images/icon-error.svg" alt="" />
+          <p>Please select an answer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
