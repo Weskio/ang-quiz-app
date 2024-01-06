@@ -1,9 +1,6 @@
+// In question.ts
 export interface Question {
-    question:[
-        title:string,
-        options:[]
-    ]
-        
-    
-   
+  question: string;
+  options: string[];
+  answer: string;
 }
