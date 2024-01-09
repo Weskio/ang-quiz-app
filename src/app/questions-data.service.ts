@@ -382,6 +382,12 @@ export class QuestionsDataService {
     return extractedQuestions;
   }
 
+  getIconByTitle(title: string): string | null {
+    const category = this.questionsData.find(c => c.title === title);
+    return category ? category.icon : null;
+}
+
+
   
   constructor() {}
 }

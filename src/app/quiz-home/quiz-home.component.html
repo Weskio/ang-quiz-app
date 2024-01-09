@@ -5,9 +5,16 @@
 >
   <div class="mode-toggle p-12 ml-[65%] lg:ml-[80%] flex">
     <img src="../../assets/images/icon-sun-dark.svg" alt="" />
-    <label class="switch">
-      <input type="checkbox" (click)="toggleTheme()" />
-      <span class="slider"></span>
+    <label class="relative inline-flex items-center mt-5 mb-5 cursor-pointer">
+      <input
+        type="checkbox"
+        value=""
+        class="sr-only peer"
+        (click)="toggleTheme()"
+      />
+      <div
+        class="w-11 h-[25px] bg-purple peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple"
+      ></div>
     </label>
     <img src="../../assets/images/icon-moon-dark.svg" alt="dark" />
   </div>
@@ -17,7 +24,7 @@
       <p class="-mb-10 text-[4rem] font-[400]">Welcome to the</p>
       <span class="font-[500]"> Frontend quiz </span>
 
-      <p class="pick  lg:mt-7 text-lg font-light italic">
+      <p class="pick lg:mt-7 text-lg font-light italic">
         Pick a subject to get started
       </p>
     </div>

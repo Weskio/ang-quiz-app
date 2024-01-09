@@ -22,6 +22,8 @@ export class QuestionsComponent {
   score = 0;
   noAnswer = false;
   isResultShown = false;
+  title:string | null=''
+  icon: string | null = null;
 
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
@@ -40,12 +42,31 @@ export class QuestionsComponent {
       if (categoryTitle) {
         this.questions =
           this.questionsDataService.extractQuestions(categoryTitle);
+          this.icon = this.questionsDataService.getIconByTitle(categoryTitle);
       }
-     return categoryTitle;
+      this.title=categoryTitle;
+      
+    console.log(categoryTitle)
 
     });
 
   }
+
+  getBackgroundColorClass(iconPath: string): string {
+    if (iconPath === null) {
+      return ''; // Return a default class or an empty string for null values
+  }
+    else if (iconPath.includes('html')) {
+        return 'bg-orange-100'; // Replace with your actual orange background class
+    } else if (iconPath.includes('css')) {
+        return 'bg-green-100'; // Replace with your actual green background class
+    } else if (iconPath.includes('js')) {
+        return 'bg-blue-100'; // Replace with your actual blue background class
+    } else{
+        return 'bg-violet-100'; // Replace with your actual purple background class
+    } 
+}
+
 
   optionClicked(selectedOption) {
     if (!this.isAnswered) {
