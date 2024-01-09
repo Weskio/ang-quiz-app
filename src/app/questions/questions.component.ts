@@ -41,7 +41,10 @@ export class QuestionsComponent {
         this.questions =
           this.questionsDataService.extractQuestions(categoryTitle);
       }
+     return categoryTitle;
+
     });
+
   }
 
   optionClicked(selectedOption) {

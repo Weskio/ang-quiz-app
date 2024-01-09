@@ -3,7 +3,7 @@
   class="pb-[8%] w-full bg-cover"
   [ngClass]="{ darkmode: isDarkMode, lightmode: !isDarkMode }"
 >
-  <div class="mode-toggle p-12 ml-[80%] flex">
+  <div class="mode-toggle p-12 ml-[65%] lg:ml-[80%] flex">
     <img src="../../assets/images/icon-sun-dark.svg" alt="" />
     <label class="switch">
       <input type="checkbox" (click)="toggleTheme()" />
@@ -12,21 +12,21 @@
     <img src="../../assets/images/icon-moon-dark.svg" alt="dark" />
   </div>
 
-  <div class="main-content ml-20 flex mt-6 gap-40">
-    <div class="welcome-text text-[4.5rem] ml-16 text-deep-navy">
-      <p class="-mb-10">Welcome to the</p>
-      <span class="font-semibold"> Frontend quiz </span>
+  <div class="main-content px-6 lg:px-0 lg:ml-20 lg:flex -mt-3 lg:mt-6 gap-40">
+    <div class="welcome-text text-[4.5rem] lg:ml-16 text-deep-navy">
+      <p class="-mb-10 text-[4rem] font-[400]">Welcome to the</p>
+      <span class="font-[500]"> Frontend quiz </span>
 
-      <p class="pick mt-7 text-lg font-light italic">
+      <p class="pick  lg:mt-7 text-lg font-light italic">
         Pick a subject to get started
       </p>
     </div>
 
-    <div class="choose-cat">
+    <div class="choose-cat mt-16 lg:mt-0">
       <div>
         <a [routerLink]="['/questions', 'HTML']">
           <div
-            class="cat-item border-[3px] border-white hover:border-[3px] hover:border-purple mb-5 w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7"
+            class="cat-item border-[3px] border-white hover:border-[3px] hover:border-purple mb-5 lg:w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7"
           >
             <img
               src="../../assets/images/icon-html.svg"
@@ -39,7 +39,7 @@
 
         <a [routerLink]="['/questions', 'CSS']">
           <div
-            class="cat-item border-[3px] border-white hover:border-[3px] hover:border-purple mb-5 w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7"
+            class="cat-item border-[3px] border-white hover:border-[3px] hover:border-purple mb-5 lg:w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7"
           >
             <img
               src="../../assets/images/icon-css.svg"
@@ -51,7 +51,7 @@
         </a>
         <a [routerLink]="['/questions', 'JavaScript']">
           <div
-            class="cat-item border-[3px] border-white hover:border-[3px] hover:border-purple mb-5 w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7"
+            class="cat-item border-[3px] border-white hover:border-[3px] hover:border-purple mb-5 lg:w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7"
           >
             <img
               src="../../assets/images/icon-js.svg"
@@ -64,7 +64,7 @@
 
         <a [routerLink]="['/questions', 'Accessibility']">
           <div
-            class="cat-item border-[3px] border-white hover:border-[3px] hover:border-purple mb-5 w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7"
+            class="cat-item border-[3px] border-white hover:border-[3px] hover:border-purple mb-5 lg:w-[40vw] p-7 rounded-2xl bg-white shadow-xl flex gap-7"
           >
             <img
               src="../../assets/images/icon-accessibility.svg"
