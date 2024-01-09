@@ -15,6 +15,14 @@ export class QuizHomeComponent {
 
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
-    console.log('hello');
+    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
   }
+
+  ngOnInit() {
+    const savedTheme = localStorage.getItem('theme');
+    this.isDarkMode = savedTheme === 'dark';
+    // Apply the theme to your application as needed
+  }
+
+
 }

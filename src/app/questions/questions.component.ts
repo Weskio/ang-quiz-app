@@ -28,6 +28,7 @@ export class QuestionsComponent {
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
   }
+
   questions!: Question[]; // Adjust based on your Question type
 
   constructor(

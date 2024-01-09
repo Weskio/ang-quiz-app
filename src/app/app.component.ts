@@ -12,5 +12,5 @@ import { QuestionsComponent } from "./questions/questions.component";
     imports: [CommonModule, RouterOutlet, QuizHomeComponent, QuestionsComponent]
 })
 export class AppComponent {
-  title = 'ang-quiz-app';
+  
 }
