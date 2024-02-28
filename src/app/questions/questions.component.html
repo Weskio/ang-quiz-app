@@ -1,22 +1,23 @@
 <div
-  class="pb-[8%] xl:pb-[9.5%] w-full bg-cover"
+  class="xl:pb-[14%] pb-[8%] w-full bg-cover"
   [ngClass]="{ darkmode: isDarkMode, lightmode: !isDarkMode }"
 >
   <div class="header flex">
-    <div class="quiz-category ml-[10%] mt-4 flex">
+    <div class="quiz-category lg:ml-16 ml-[10%] mt-4 flex">
       <img
-      [src]="'../.' + icon"
-      alt=""
-      width="40%"
-      height="40px"
-      [class]="icon ? getBackgroundColorClass(icon) : ''"
-      class="rounded-md mt-10 mb-4 p-2"
-  />
-  
+        [src]="'../.' + icon"
+        alt=""
+        width="40%"
+        [class]="icon ? getBackgroundColorClass(icon) : ''"
+        class="rounded-md mt-10 mb-4 p-2"
+      />
 
-      <p class="mt-14 ml-5 text-xl font-medium">{{title}} </p>
+      <p class="mt-14 ml-5 text-xl font-medium">{{ title }}</p>
     </div>
-    <div class="mode-toggle lg:mt-0  mt-4 p-12 ml-36 lg:ml-[55%] flex gap-3">
+
+    <div
+      class="mode-toggle lg:mt-0 ml-auto mt-6 p-12 lg:ml-[55%] flex lg:gap-3"
+    >
       <img src="../../assets/images/icon-sun-dark.svg" alt="" />
       <label class="switch">
         <input type="checkbox" (click)="toggleTheme()" />
@@ -26,9 +27,9 @@
     </div>
   </div>
 
-  <div class="main-content p-6 lg:ml-24 lg:flex mt-5 gap-40">
+  <div class="main-content p-6 lg:px-16 lg:flex mt-5">
     <div
-      class="welcome-text h-[80%] lg:ml-16 text-deep-navy lg:w-[33%]"
+      class="welcome-text h-[80%] lg:ml-0 text-deep-navy lg:w-[33%]"
       *ngIf="!isResultShown"
     >
       <p class="pick mt-7 text-lg font-light italic mb-5">
@@ -49,12 +50,12 @@
       </div>
     </div>
 
-    <div class="lg:ml-24 lg:p-0 p-6 lg:mr-24 quiz-completed" *ngIf="isResultShown">
+    <div class="lg:p-0 p-6 lg:mr-24 quiz-completed" *ngIf="isResultShown">
       <p class="text-[3rem] font-[400] text-navy">Quiz completed</p>
       <p class="text-[3.5rem] -mt-6 text-deep-navy font-[550]">You scored...</p>
     </div>
 
-    <div class="choose-cat">
+    <div class="choose-cat lg:ml-auto">
       <div>
         <div class="" *ngIf="!isResultShown">
           <div
@@ -62,7 +63,7 @@
             (click)="optionClicked(option)"
             [ngClass]="{
               'cat-item': true,
-              group: true,
+              'group': true,
               'border-[3px]': true,
               'border-white': true,
               'hover:border-[3px]': true,
@@ -111,25 +112,31 @@
         </div>
 
         <div
-          class="results p-6 lg:p-0 h-[46vh] w-full lg:w-[35vw] bg-white mb-12 rounded-xl"
+          class="results items-center p-6 px-24 lg:p-0 h-[46vh] w-[430px] lg:w-[35vw] bg-white mb-12 rounded-xl"
           *ngIf="isResultShown"
         >
-          <div class="lg:mt-4 ml-20 mr-20 -mb-4 flex lg:ml-[10vw]">
-            <img
-              src="../../assets/images/icon-accessibility.svg"
-              alt=""
-              width="15%"
-              height="40px"
-              class="rounded-md mt-4 p-2 bg-violet-100"
-            />
-            <p class="lg:mt-8 mt-5 ml-5 text-xl font-semibold  lg:font-medium">Accessibility</p>
+          <div class="w-full ml-3 ">
+            <div class="lg:mt-4 items-center -mb-4 flex lg:ml-[10vw]">
+              <img
+                src="../../assets/images/icon-accessibility.svg"
+                alt=""
+                width="15%"
+                height="40px"
+                class="rounded-md md:w-14 mt-4 p-2 bg-violet-100"
+              />
+              <p class="lg:mt-8 mt-5 ml-5  text-xl font-semibold lg:font-medium">
+                Accessibility
+              </p>
+            </div>
+            <p
+              class="text-deep-navy  score text-[10rem] -mb-12 ml-12 lg:ml-[14vw]"
+            >
+              {{ score }}
+            </p>
+            <p class="text-ashy out-of ml-16 lg:ml-[15.2vw]">
+              out of {{ questions.length }}
+            </p>
           </div>
-          <p class="text-deep-navy score text-[10rem] -mb-12 ml-[28vw] lg:ml-[14vw]">
-            {{ score }}
-          </p>
-          <p class="text-ashy out-of ml-[30vw] lg:ml-[15.2vw]">
-            out of {{ questions.length }}
-          </p>
         </div>
 
         <button
